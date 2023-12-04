@@ -9,6 +9,9 @@ on:
 jobs:
   nuitka:
     runs-on: windows-2022
+    defaults:
+      run:
+        shell: bash
     strategy:
       matrix:
         python-version:
