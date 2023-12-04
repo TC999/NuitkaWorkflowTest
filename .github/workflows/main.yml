@@ -11,7 +11,7 @@ jobs:
     runs-on: windows-2022
     defaults:
       run:
-        shell: bash
+        shell: cmd
     strategy:
       matrix:
         python-version:
@@ -31,5 +31,5 @@ jobs:
       - run: python -m nuitka --standalone --onefile --output-filename="test.exe" --output-dir="build" --assume-yes-for-downloads run.py
       - uses: actions/upload-artifact@v3.1.3
         with:
-          name: ${{ github.event.repository.name }}
+          name: ${{ github.event.repository.name }}.${{ matrix.python-version }}
           path: build/test.exe
