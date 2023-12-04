@@ -9,11 +9,22 @@ on:
 jobs:
   nuitka:
     runs-on: windows-2022
+    strategy:
+      matrix:
+        python-version:
+          - "3.12"
+          - "3.11"
+          - "3.10"
+          - "3.9"
+          - "3.8"
+          - "3.7"
+          - "3.6"
+          - "3.5"
     steps:
       - uses: actions/checkout@v4.1.1
       - uses: actions/setup-python@v4.7.1
         with:
-          python-version: 3.8
+          python-version: ${{ matrix.python-version }}
       - run: pip install nuitka
       - run: python -m nuitka --standalone --onefile --output-filename="test.exe" --output-dir="build" --assume-yes-for-downloads run.py
       - uses: actions/upload-artifact@v3.1.3
