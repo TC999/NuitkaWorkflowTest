@@ -27,7 +27,6 @@ jobs:
         uses: TheMrMilchmann/setup-msvc-dev@v3
         with:
           arch: x64
-          sdk: 10.0.10240.0
       - name: 设置 Python
         uses: actions/setup-python@v4.7.1
         with:
