@@ -30,7 +30,7 @@ jobs:
       - name: 安装依赖
         run: pip install nuitka zstandard ordered-set
       - name: 编译
-        run: python -m nuitka --standalone --onefile  --output-dir="build" run.py
+        run: python -m nuitka --mingw64 --standalone --onefile  --output-dir="build" run.py
       - name: 上传
         uses: actions/upload-artifact@v3.1.3
         with:
