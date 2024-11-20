@@ -9,7 +9,7 @@ on:
 
 jobs:
   nuitka:
-    runs-on: windows-2019
+    runs-on: windows-latest
     strategy:
       matrix:
         python-version:
@@ -23,11 +23,8 @@ jobs:
     steps:
       - name: 仓库检出
         uses: actions/checkout@v4.1.1
-      - name: Set up MinGW
-        uses: egor-tensin/setup-mingw@v2
-        with:
-          platform: x64
-          cc: 0
+      - name: MinGW Winlibs
+        uses: Denzy7/action-mingw@v0.1
       - name: 设置 Python
         uses: actions/setup-python@v4.7.1
         with:
