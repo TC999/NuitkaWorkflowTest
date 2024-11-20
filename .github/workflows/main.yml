@@ -5,6 +5,7 @@ on:
       - created
   push:
   pull_request:
+  workflow_dispatch:
 
 jobs:
   nuitka:
