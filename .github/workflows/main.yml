@@ -1,10 +1,5 @@
-name: Build
+name: Windows
 on:
-  release:
-    types:
-      - created
-  push:
-  pull_request:
   workflow_dispatch:
 
 jobs:
